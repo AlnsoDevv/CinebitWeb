@@ -1,0 +1,23 @@
+header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: darkblue;
+    color: white;
+
+}
+nav {
+align-items: center;
+display: flex;
+gap: 50px;
+}
+
+a   {
+    text-decoration: none;
+}
+
+#busqueda{
+    padding: 5px
+}
