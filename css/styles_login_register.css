@@ -1,0 +1,76 @@
+.email{
+display: flex;
+align-items: center;
+justify-content: center;
+padding-top: 50px;
+
+}
+a {
+    text-decoration: none;;
+}
+#acerca-de {
+
+background-color: lightcoral;
+border-radius: 10px;
+padding: 0.2rem;
+color: white;
+text-decoration: none;;
+
+
+.registro {
+display: flex;
+border-color: 10px solid  black;
+    
+}
+
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.password {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 auto;
+}
+h4 {
+    margin: 0 auto;
+    text-align: center;
+    color: gray;
+}
+.contenedor-formulario{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 60vh;
+
+    margin: 0;
+}
+
+#iniciar-sesion{
+    display: block;
+    margin: 0 auto;
+
+
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
