@@ -1,0 +1,42 @@
+
+p{
+    color: white;
+    font-size: 20px;
+}
+button{
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 15px;
+}
+*{
+    box-sizing: border-box;
+}
+.pelicula{
+    display: flex;
+    width: 220px;
+    padding: 15px;
+    border: 2px solid #2e2e42;
+    border-radius: 25px;
+    background-color: #1e1e2f;
+    margin: 20px;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+}
+.peliculas{
+    display: flex;
+    gap: 20px;
+}
+.portadas{
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+h2{
+    color: white;
+}
+.pelicula:hover{
+    transform: scale(1.05);
+}
