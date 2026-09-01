@@ -41,3 +41,7 @@ h2{
 .movie:hover{
     transform: scale(1.05);
 }
+
+.star{
+    color: gold;
+}
