@@ -41,3 +41,6 @@ h2{
 .pelicula:hover{
     transform: scale(1.05);
 }
+.estrella{
+    color: gold;
+}
