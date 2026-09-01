@@ -3,7 +3,7 @@ p{
     color: white;
     font-size: 20px;
 }
-.ver-descripcion{
+.view-description{
     background-color: black;
     color: white;
     font-size: 20px;
@@ -13,7 +13,7 @@ p{
 *{
     box-sizing: border-box;
 }
-.pelicula{
+.movie{
     display: flex;
     width: 220px;
     padding: 15px;
@@ -25,11 +25,11 @@ p{
     align-items: center;
     transition: transform 0.2s ease;
 }
-.peliculas{
+.movies{
     display: flex;
     gap: 20px;
 }
-.portadas{
+.poster{
     width: 200px;
     height: 300px;
     object-fit: cover;
@@ -38,6 +38,6 @@ p{
 h2{
     color: white;
 }
-.pelicula:hover{
+.movie:hover{
     transform: scale(1.05);
 }
