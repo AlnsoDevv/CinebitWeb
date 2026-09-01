@@ -3,10 +3,11 @@ p{
     color: white;
     font-size: 20px;
 }
-button{
+.ver-descripcion{
     background-color: black;
     color: white;
     font-size: 20px;
+    padding: 8px;
     border-radius: 15px;
 }
 *{
