@@ -2,13 +2,16 @@
 p{
     color: white;
     font-size: 20px;
+    margin:1px 1px;
 }
 .view-description{
-    background-color: black;
+    background-color: darkred;
     color: white;
     font-size: 20px;
-    padding: 8px;
+    padding: 6px;
     border-radius: 15px;
+    margin: 12px;
+    
 }
 *{
     box-sizing: border-box;
@@ -16,8 +19,8 @@ p{
 .movie{
     display: flex;
     width: 220px;
-    padding: 15px;
-    border: 2px solid #2e2e42;
+    padding: 0px;
+    border: 0.01px solid #2e2e42;
     border-radius: 25px;
     background-color: #1e1e2f;
     margin: 20px;
@@ -34,9 +37,12 @@ p{
     height: 300px;
     object-fit: cover;
     border-radius: 25px;
+    margin: 8px;
 }
 h2{
     color: white;
+    margin: 0px 0px;
+    font-size: 28px;
 }
 .movie:hover{
     transform: scale(1.05);
@@ -44,4 +50,22 @@ h2{
 
 .star{
     color: gold;
+}
+
+.star-off{
+    color: darkgoldenrod;
+}
+
+.year{
+    font-size: 16px;
+}
+
+.genre{
+    font-size: 13px;
+}
+.stars{
+    font-size: 31px;
+}
+.rating-value{
+    font-size: 14px;
 }
