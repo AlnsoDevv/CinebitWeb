@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineBit</title>
-    <link rel="stylesheet" href="/css/styles_login_register.css">
+    <title> CineMarcos</title>
+    <link rel="stylesheet" href="../css/movie-info.css">
+    <link rel="stylesheet" href="../css/home-page.css">
 </head>
 <body>
     <header>
-            <nav>
-                 <a href="../index.html"><h1>CineBit</h1></a>
-                <a id="acerca-de" href="">Acerca de</a>
-            </nav>
-        </header>
+        <img src="../Images/Logo.png" width="175px" alt="LogoCineMarcos">
+        <nav>
+
+         <form class="search-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+
+                <input type="text" name="search" id="search" placeholder="Busca una película..">
+
+            </form>
+            <a class="profile-link" href="sign-in.html">Mi perfil</a>
+            
+        </nav>
+    </header>
+
         <main>
+            <div class="trailer">
                 <iframe src="https://www.youtube.com/embed/T4_wHfz2qUA" width="550" height="361"></iframe>
+            </div>
+
+            <div class="description">
+            <div class="movie-poster">
+                <a href="pages/DragonBall-Evolution.html"><img class="poster" src="https://m.media-amazon.com/images/S/pv-target-images/eff97ff56a9ebbfe951436efeb22f6debbf6b2d9bd0f649fe5c5bd646bc7129a.jpg" alt="portada dbevo"></a>
+            </div>
+                <div class="title">
+                    <h2>Dragon Ball: Evolution</h2>
+                    <p class="year">2009</p>
+                    <p class="info">Un joven guerrero debe proteger la Tierra del vengativo Piccolo, evitando que las siete esferas místicas caigan en sus manos.</p>
+                </div>
+
+            </div>
         </main>
 
 

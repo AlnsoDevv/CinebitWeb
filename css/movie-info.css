@@ -1,0 +1,33 @@
+.trailer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 60vh;
+}
+
+.movie-poster img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.description {
+    margin-left: 100px;
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.title {
+    color: white;
+}
+
+.title h2 {
+    margin-top: 0;
+}
+
+.year {
+    font-size: 20px;
+}
