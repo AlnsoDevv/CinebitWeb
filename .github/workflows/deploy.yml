@@ -17,5 +17,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             
-            cd /var/www/html/projects
+            cd /var/www/html/project
             git pull origin main
