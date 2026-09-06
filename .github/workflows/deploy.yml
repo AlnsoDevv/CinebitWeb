@@ -16,6 +16,6 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            # IMPORTANTE: Cambia "mi-proyecto" por el nombre real de tu carpeta en EC2
-            cd /home/ubuntu/mi-proyecto
+            
+            cd /var/www/html/projects
             git pull origin main
