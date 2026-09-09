@@ -15,7 +15,10 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
+          
             
+          script: |
             cd /var/www/html/project
-            git pull origin main
+           
+            sudo git fetch --all
+            sudo git reset --hard origin/main
