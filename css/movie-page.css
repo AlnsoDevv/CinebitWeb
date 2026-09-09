@@ -56,15 +56,19 @@ position: absolute;
     border: 1px solid white;
     border-radius: 8px;
     padding: 10px 18px;
+    text-decoration: none;
 }
 h1 {
+    
+    display: inline-block;
     color: white;
-    font-size: 80px;
-    width: 0;
-    padding-left: 190px;
+    font-size: 50px;
+    width: auto;
+    padding-left: 320px;
     margin: 0;
     
 }
+
 .movie-poster img{
     border-radius: 25px;
     width: 300px;
@@ -101,8 +105,6 @@ iframe {
     flex-direction: column;
     background-color: rgba(120, 120, 255, 0.04);
     border-radius: 20px;
-    margin-top: 20px;
-    margin-left: 100px;
     padding: 20px 30px;
     width: 800px;
     margin-left: auto;
