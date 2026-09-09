@@ -19,6 +19,5 @@ jobs:
             
           script: |
             cd /var/www/html/project
-           
-            sudo git fetch --all
-            sudo git reset --hard origin/main
+             sudo pull origin main
+            
