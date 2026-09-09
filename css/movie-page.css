@@ -1,0 +1,143 @@
+html {
+
+   font-family: Arial, sans-serif;
+   background: rgb(219, 42, 42);
+   background: linear-gradient(0deg,rgb(32, 32, 44) 0%,rgb(90, 45, 55) 45%,rgb(219, 42, 42) 100%);
+   background-repeat: no-repeat;
+}
+
+
+header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+
+}
+
+nav {
+flex: 1;
+justify-content: center;
+align-items: center;
+display: flex;
+position: relative;
+gap: 50px;
+padding-right: 175px;
+}
+
+.search-bar{
+align-items: center;
+display: flex;
+border: 1px solid white;
+border-radius: 10px;
+overflow: hidden;
+}
+
+#search {
+    width: 450px;
+    height: 40px;
+    font-size: 16px;
+    padding: 0 12px;
+    border: none;
+}
+
+#search::placeholder {
+    color: red;
+}
+
+.profile-link{
+position: absolute;
+    right: 0;
+    background-color: white;
+    color: red;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px 18px;
+}
+h1 {
+    color: white;
+    font-size: 80px;
+    width: 0;
+    padding-left: 190px;
+    margin: 0;
+    
+}
+.movie-poster img{
+    border-radius: 25px;
+    width: 300px;
+    height: 361px;
+    object-fit: cover;
+    display: flex;
+}
+iframe {
+    border: none;
+    border-radius: 25px;
+}
+.poster-trailer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+
+.title2 {
+    color: white;
+    text-align: center;
+}
+
+
+
+.reviews{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(120, 120, 255, 0.04);
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 100px;
+    padding: 20px 30px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.review{
+    margin: 20px;
+    margin-top: 15px;
+    background-color: rgba(120, 120, 255, 0.06);
+    border-radius: 12px;
+    padding: 5px;
+
+}
+.profilePicAndName {
+    display: flex;
+    align-items: center;
+
+}
+.profilePic{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.userName{
+    margin-left: 10px;
+    color: white;
+}
+.opinion{
+    color: white;
+    margin: 0px;
+}
+.star{
+    color: gold;
+}
+
+
+
