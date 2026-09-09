@@ -19,5 +19,5 @@ jobs:
             
           script: |
             cd /var/www/html/project
-             sudo pull origin main
+             sudo git pull origin main
             
