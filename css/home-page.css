@@ -3,6 +3,8 @@ html {
    background: rgb(219, 42, 42);
    background: linear-gradient(0deg,rgb(32, 32, 44) 0%,rgb(90, 45, 55) 45%,rgb(219, 42, 42) 100%);
    background-repeat: no-repeat;
+   min-height: 100vh;
+   
 }
 
 
