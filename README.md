@@ -12,4 +12,4 @@ Proyecto realizado para el ramo de Desarrollo Web.
 Alonso Quilapan, Felipe Salinas, Jose Tiu.
 
 ### Goat
-Marco Olivares es el goat.
+Marco Fantoval es el goat.
