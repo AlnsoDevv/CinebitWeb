@@ -13,9 +13,6 @@ body {
     max-width: 100xw;
     overflow-x: hidden ;
 }
-* {
-  outline: 1px solid red !important;
-}
 
 
 header {
