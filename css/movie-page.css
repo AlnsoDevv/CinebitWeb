@@ -89,6 +89,39 @@ iframe {
 
 
 
+.movieButtons{
+    display: flex;
+    gap: 5px;
+    border-radius: 10px;
+    margin: 10px;
+    transition: transform 0.2s ease;
+}
+.buttonFav{
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: rgba(120, 120, 255, 0.04);
+    border: none;
+    color: white;
+    transition: transform 0.2s ease;
+}
+.buttonFav:hover{
+    transform: scale(1.05);
+}
+.buttonQualify{
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: rgba(120, 120, 255, 0.04);
+    border: none;
+    color: white;
+    transition: transform 0.2s ease;
+}
+.buttonQualify:hover{
+    transform: scale(1.05);
+}
+
+
 
 
 
@@ -118,6 +151,32 @@ iframe {
     padding: 5px;
 
 }
+
+.new-Review{
+align-items: center;
+display: flex;
+border: none;
+border-radius: 10px;
+overflow: hidden;
+background-color: rgba(120, 120, 255, 0.06);
+margin: 20px;
+}
+
+#newReview {
+    width: 400px;
+    height: 40px;
+    font-size: 18px;
+    padding: 0 12px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    flex: 1;
+}
+
+#newReview::placeholder {
+    background-color: rgba(120, 120, 255, 0.06);
+}
+
 .profilePicAndName {
     display: flex;
     align-items: center;
