@@ -64,14 +64,13 @@ h1 {
     color: white;
     font-size: 50px;
     width: auto;
-    padding-left: 320px;
     margin: 0;
     
 }
 
 .movie-poster img{
     border-radius: 25px;
-    width: 300px;
+    width: 260px;
     height: 361px;
     object-fit: cover;
     display: flex;
@@ -95,11 +94,12 @@ iframe {
     border-radius: 10px;
     margin: 10px;
     transition: transform 0.2s ease;
+    padding-left: 48px;
 }
 .buttonFav{
     border-radius: 5px;
-    padding: 8px 16px;
-    font-size: 16px;
+    padding: 12px 24px;
+    font-size: 20px;
     background-color: rgba(120, 120, 255, 0.04);
     border: none;
     color: white;
@@ -110,8 +110,8 @@ iframe {
 }
 .buttonQualify{
     border-radius: 5px;
-    padding: 8px 16px;
-    font-size: 16px;
+    padding: 12px 24px;
+    font-size: 20px;
     background-color: rgba(120, 120, 255, 0.04);
     border: none;
     color: white;
@@ -133,15 +133,14 @@ iframe {
 
 
 
-.reviews{
+.reviews {
     display: flex;
     flex-direction: column;
     background-color: rgba(120, 120, 255, 0.04);
     border-radius: 20px;
     padding: 20px 30px;
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 810px;
+    margin-top: 20px;
 }
 .review{
     margin: 20px;
@@ -200,5 +199,40 @@ margin: 20px;
     color: gold;
 }
 
+main {
+    width: 1120px;
+    margin: 0 auto;
+}
 
+.movie-main {
+    display: flex;
+    gap: 170px;
+}
 
+.movie-layout {
+    width: 870px;
+}
+
+.movie-description {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(120, 120, 255, 0.04);
+    border-radius: 20px;
+    color: white;
+}
+
+.recommended {
+    width: 200px;
+}
+
+.recommended h2 {
+    color: white;
+}
+
+.recommended img {
+    width: 180px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}

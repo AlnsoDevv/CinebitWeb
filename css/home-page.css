@@ -59,6 +59,36 @@ position: absolute;
     padding: 10px 18px;
     text-decoration: none;  
 }
+.sortMenu{
+    position: relative;
+    background-color: white;
+    color: red;
+    border-radius: 8px;
+    padding: 10px 18px;
+    width: 180px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.sortMenu summary{
+    cursor: pointer;
+}
+
+.sortOptions{
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 150px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px 18px;
+    color: black;
+}
+
+.sortOptions p{
+    margin: 10px 0;
+    color: black;
+}
 
 a   {
     text-decoration: none;
@@ -66,3 +96,4 @@ a   {
 footer{
     color: transparent;
 }
+
