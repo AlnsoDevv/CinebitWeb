@@ -1,0 +1,186 @@
+html {
+
+   font-family: Arial, sans-serif;
+   background: rgb(219, 42, 42);
+   background: linear-gradient(0deg,rgb(32, 32, 44) 0%,rgb(90, 45, 55) 45%,rgb(219, 42, 42) 100%);
+   background-repeat: no-repeat;
+   min-height: 100vh;
+   max-width: 100vw;
+   overflow-x: hidden;
+
+}
+body {
+    max-width: 100xw;
+    overflow-x: hidden ;
+}
+
+
+header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+
+}
+
+nav {
+flex: 1;
+justify-content: center;
+align-items: center;
+display: flex;
+position: relative;
+gap: 50px;
+padding-right: 175px;
+}
+
+.search-bar{
+align-items: center;
+display: flex;
+border: 1px solid white;
+border-radius: 10px;
+overflow: hidden;
+}
+
+#search {
+    width: 450px;
+    height: 40px;
+    font-size: 16px;
+    padding: 0 12px;
+    border: none;
+}
+
+#search::placeholder {
+    color: red;
+}
+
+.profile-link{
+position: absolute;
+    right: 0;
+    background-color: white;
+    color: red;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 10px 18px;
+    text-decoration: none;
+}
+
+
+
+
+
+.ProfilePicture img{
+    border-radius: 25px;
+    width: 260px;
+    height: 361px;
+    object-fit: cover;
+    display: flex;
+}
+
+.ProfilePicture h2{
+    color: white;
+}
+
+.Profile-Reviews {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+
+
+
+
+.title2 {
+    margin-top: 0;
+    color: white;
+    text-align: center;
+}
+
+
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(120, 120, 255, 0.04);
+    border-radius: 20px;
+    padding: 20px 30px;
+    padding-top: 0;
+    width: 810px;
+}
+.review{
+    margin: 20px;
+    margin-top: 15px;
+    background-color: rgba(120, 120, 255, 0.06);
+    border-radius: 12px;
+    padding: 5px;
+
+}
+
+
+.profilePicAndName {
+    display: flex;
+    align-items: center;
+
+}
+.profilePic{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.userName{
+    margin-left: 10px;
+    color: white;
+}
+.opinion{
+    color: white;
+    margin: 0px;
+}
+
+main {
+    width: 1120px;
+    margin: 0 auto;
+}
+
+.profile-main {
+    display: flex;
+    gap: 170px;
+}
+
+.profile-layout {
+    width: 870px;
+}
+
+.profile-description {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(120, 120, 255, 0.04);
+    border-radius: 20px;
+    color: white;
+}
+
+.title3fav{
+    color: white;
+}
+
+.Favorites {
+    width: 200px;
+    display: flex;
+    gap: 50px;
+}
+
+.Favorites img {
+    width: 180px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+.star{
+    color: gold;
+}
