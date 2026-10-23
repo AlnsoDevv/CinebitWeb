@@ -1,10 +1,10 @@
 import './MovieCard.css';
 
-function MovieCard ({title, posterUrl, year, rating}) {
+function MovieCard ({id,title, posterUrl, year, rating}) {
     const starRating = Math.round(rating);
     return (<article className='movie'>
-        <a href={`/peliculas/${title.replace(/\s+/g, '')}`}>
-        <img className='poster' src={posterUrl} alt="`Póster de ${title}`}"/>
+        <a href={`/peliculas/${id}`}>
+            <img className='poster' src={posterUrl} alt="`Póster de ${title}`}"/>
         </a>
         <p className='stars'>
             {[1, 2, 3, 4, 5].map((star) => (
