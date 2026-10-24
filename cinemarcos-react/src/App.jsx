@@ -4,12 +4,15 @@ import './index.css';
 import './catalogue.css';
 import { peliculasData } from './Data/peliculasData.jsx';
 import MoviePages from "./MoviePages.jsx";
+import { useState } from 'react';
+import Filter from "./components/Filter.jsx";
 
 function App() {
     const id = window.location.pathname.split('/')[2];
     const movie = peliculasData.find(
         (pelicula) => pelicula.id === Number(id)
     );
+    const [filterOpen, setFilterOpen] = useState(false);
 
     if (movie) {
         return (
@@ -23,6 +26,14 @@ function App() {
     <>
       <Header />
       <main>
+          <button onClick={() => setFilterOpen(true)}>
+              Filtrar y ordenar
+          </button>
+          {filterOpen && (
+              <Filter
+                  closeFilter={() => setFilterOpen(false)}
+              />
+          )}
     <section className='movies'>
     {peliculasData.map((pelicula) => (
         <MovieCard
