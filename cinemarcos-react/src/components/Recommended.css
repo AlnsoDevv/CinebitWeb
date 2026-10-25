@@ -1,0 +1,28 @@
+.recommended {
+    width: 180px;
+}
+
+.recommended h2 {
+    color: white;
+    text-align: center;
+}
+
+.recommendedMovies {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recommendedMovie {
+    text-align: center;
+}
+
+.recommendedMovie img {
+    width: 160px;
+    border-radius: 15px;
+}
+
+.recommendedMovie p {
+    color: white;
+    font-weight: bold;
+}
