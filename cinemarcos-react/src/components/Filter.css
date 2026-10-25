@@ -1,0 +1,42 @@
+.filterOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    z-index: 1000;
+}
+
+.filterPanel {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 320px;
+    height: 100vh;
+
+    background-color: rgb(32, 32, 44);
+    color: white;
+
+    padding: 25px;
+
+    box-sizing: border-box;
+}
+
+.closeFilter {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    background: none;
+    border: none;
+
+    color: white;
+    font-size: 24px;
+
+    cursor: pointer;
+}

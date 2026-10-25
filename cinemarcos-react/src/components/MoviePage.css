@@ -1,0 +1,185 @@
+.movieMain {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 15px;
+}
+
+.movieTitle {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 50px;
+  width: auto;
+  margin: 0;
+}
+
+.moviePoster img {
+  border-radius: 25px;
+  width: 260px;
+  height: 361px;
+  object-fit: cover;
+  display: flex;
+}
+
+.trailerFrame {
+  border: none;
+  border-radius: 25px;
+  max-width: 100%;
+  width: 550px;
+  height: 361px;
+}
+
+.posterTrailer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.movieButtons {
+  display: flex;
+  gap: 5px;
+  border-radius: 10px;
+  margin: 10px;
+  transition: transform 0.2s ease;
+  padding-left: 48px;
+}
+
+.buttonFav,
+.buttonQualify {
+  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 20px;
+  background-color: rgba(120, 120, 255, 0.04);
+  border: none;
+  color: white;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.buttonFav:hover,
+.buttonQualify:hover {
+  transform: scale(1.05);
+}
+
+.title2 {
+  color: white;
+  text-align: center;
+}
+
+.movie-description {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(120, 120, 255, 0.04);
+  border-radius: 20px;
+  color: white;
+}
+.form-calificar-container {
+  margin-top: 20px;
+  color: white;
+  background-color: rgba(120, 120, 255, 0.04);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.form-calificar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-calificar h3 {
+  margin: 0;
+}
+
+.select-calificacion {
+  padding: 6px 10px;
+  border-radius: 6px;
+  background-color: rgb(32, 32, 44);
+  color: white;
+  border: 1px solid darkred;
+  outline: none;
+  margin-left: 10px;
+}
+
+.textarea-comentario {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(120, 120, 255, 0.06);
+  color: white;
+  font-size: 15px;
+  resize: vertical;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.textarea-comentario::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-publicar {
+  padding: 10px 20px;
+  background-color: darkred;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-start;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.btn-publicar:hover {
+  transform: scale(1.03);
+  background-color: rgb(182, 17, 17);
+}
+
+.mensaje-login-requerido {
+  margin: 0;
+  color: #ffaaaa;
+}
+
+.seccion-comentarios {
+  margin-top: 30px;
+  color: white;
+}
+
+.lista-comentarios {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.comentario-item {
+  background-color: rgba(120, 120, 255, 0.06);
+  padding: 15px 20px;
+  border-radius: 12px;
+}
+
+.comentario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.comentario-texto {
+  margin: 5px 0;
+  color: white;
+}
+
+.comentario-fecha {
+  opacity: 0.5;
+  font-size: 12px;
+}
+
+.sin-comentarios {
+  opacity: 0.7;
+}
