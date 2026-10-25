@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './MoviePage.css';
+import Recommended from "../components/Recommended.jsx";
 
 function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -18,6 +19,8 @@ function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
   return (
     <main className="movieMain">
       <h1 className="movieTitle">{movie.title}</h1>
+        <div className="movieLayout">
+            <div className="movieContent">
 
       <section className="posterTrailer">
         <div className="moviePoster">
@@ -109,6 +112,7 @@ function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
           </div>
         )}
       </section>
+            </div> <Recommended currentMovieId={movie.id} /> </div>
     </main>
   );
 }
