@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./components/MoviePage.css";
+import { useState } from 'react';
+import './MoviePage.css';
 
 function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);

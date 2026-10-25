@@ -1,12 +1,12 @@
-import { useDebugValue, useState } from "react";
-import Header from "./components/Header";
-import MovieCard from "./components/MovieCard";
-import "./index.css";
-import "./catalogue.css";
-import { peliculasData } from "./Data/peliculasData.jsx";
-import MoviePages from "./MoviePages.jsx";
-import Filter from "./components/Filter.jsx";
-import SignIn from "./components/SignIn.jsx";
+import { useState } from 'react';
+import Header from './components/Header.jsx';
+import MovieCard from './components/MovieCard.jsx';
+import Filter from './components/Filter.jsx';
+import MoviePages from './Pages/MoviePages.jsx';
+import SignIn from './Pages/SignIn.jsx';
+import { peliculasData } from './Data/peliculasData.jsx';
+import './Styles/index.css';
+import './Styles/catalogue.css';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");

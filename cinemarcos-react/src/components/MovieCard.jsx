@@ -1,4 +1,4 @@
-import "./MovieCard.css";
+import './MovieCard.css';
 
 function MovieCard({ id, title, posterUrl, year, rating, onSelectMovie }) {
   const starRating = Math.round(rating);

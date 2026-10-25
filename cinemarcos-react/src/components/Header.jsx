@@ -1,4 +1,5 @@
-import "./Header.css";
+import './Header.css';
+import Logo from '../Images/Logo.png';
 
 function Header({
   searchTerm,
@@ -17,7 +18,7 @@ function Header({
           window.history.pushState({}, "", "/");
         }}
       >
-        <img src="/src/Images/Logo.png" width="175px" alt="LogoCineMarcos" />
+          <img src={Logo} width="175px" alt="LogoCineMarcos" />
       </a>
       <nav>
         <form className="search-bar" onSubmit={(e) => e.preventDefault()}>
