@@ -9,6 +9,8 @@ import Filter from "./components/Filter.jsx";
 
 function App() {
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedGenre, setSelectedGenre] = useState("Todos");
+    const [sortBy, setSortBy] = useState("recientes");
 
     const id = window.location.pathname.split('/')[2];
 
@@ -19,7 +21,12 @@ function App() {
     const [filterOpen, setFilterOpen] = useState(false);
 
     const peliculasFiltradas = peliculasData.filter((pelicula) =>
-        pelicula.title.toLowerCase().includes(searchTerm.toLowerCase())
+        pelicula.title.toLowerCase().includes(searchTerm.toLowerCase()) && (selectedGenre === "Todos" || pelicula.genre ===selectedGenre))
+    .sort((a,b) => {
+        if(sortBy === "az") return a.title.localeCompare(b.title);
+        if(sortBy ==="estreno") return b.year - a.year;
+        return b.id - a.id;
+    }
     );
 
     if (movie) {
@@ -51,6 +58,11 @@ function App() {
                 {filterOpen && (
                     <Filter
                         closeFilter={() => setFilterOpen(false)}
+                        peliculas={peliculasData}
+                        selectedGenre={selectedGenre}
+                        onGenreChange={setSelectedGenre}
+                        sortBy={sortBy}
+                        onSortChange={setSortBy}
                     />
                 )}
 
