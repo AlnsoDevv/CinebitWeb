@@ -68,6 +68,7 @@ function App() {
     .sort((a, b) => {
       if (sortBy === "az") return a.title.localeCompare(b.title);
       if (sortBy === "estreno") return b.year - a.year;
+      if (sortBy === "rating") return b.rating - a.rating;
       return b.id - a.id;
     });
   if (vista === "signin") {
@@ -117,7 +118,8 @@ function App() {
       />
 
       <main>
-        <button onClick={() => setFilterOpen(true)}>Filtrar y ordenar</button>
+        <button className="filterButton" onClick={() => setFilterOpen(true)}>
+          <span className="filterIcon">☰</span> Filtrar </button>
 
         {filterOpen && (
           <Filter
