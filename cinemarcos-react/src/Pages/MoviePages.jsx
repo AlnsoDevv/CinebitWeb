@@ -58,21 +58,18 @@ function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
               <h3>
                 Calificar película como <strong>{currentUser.nombre}</strong>
               </h3>
-              <div>
-                <label htmlFor="puntuacion-select">Puntuación: </label>
-                <select
-                  id="puntuacion-select"
-                  value={calificacion}
-                  onChange={(e) => setCalificacion(Number(e.target.value))}
-                  className="select-calificacion"
-                >
-                  <option value={5}>★★★★★ (5/5)</option>
-                  <option value={4}>★★★★ (4/5)</option>
-                  <option value={3}>★★★ (3/5)</option>
-                  <option value={2}>★★ (2/5)</option>
-                  <option value={1}>★ (1/5)</option>
-                </select>
-              </div>
+                <div className="ratingStars">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                        <button
+                            key={star}
+                            type="button"
+                            onClick={() => setCalificacion(star)}
+                            className={star <= calificacion ? "starActive" : "starInactive"}
+                        >
+                            ★
+                        </button>
+                    ))}
+                </div>
               <textarea
                 rows="3"
                 placeholder="Escribe tu reseña u opinión sobre la película..."

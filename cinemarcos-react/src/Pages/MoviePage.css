@@ -195,3 +195,30 @@
   align-items: flex-start;
   gap: 40px;
 }
+
+.ratingStars {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 15px 0;
+}
+
+.ratingStars button {
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.starActive {
+  color: gold;
+}
+
+.starInactive {
+  color: gray;
+}
+
+.ratingStars button:hover {
+  transform: scale(1.15);
+}
