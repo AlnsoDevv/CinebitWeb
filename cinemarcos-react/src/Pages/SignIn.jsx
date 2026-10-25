@@ -14,7 +14,7 @@ function SignIn({ onLogin, onNavigateRegister }) {
   };
   return (
     <main>
-      <div className="contendor-formulario">
+      <div className="contenedor-formulario">
         <form onSubmit={handleSubmit}>
           <h2>¡Bienvenido!</h2>
           <h4>¡Que gusto tenerte devuelta!</h4>

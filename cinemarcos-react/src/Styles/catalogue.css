@@ -66,3 +66,33 @@ h2{
 .rating-value{
     font-size: 14px;
 }
+
+.filterButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 20px 30px;
+    padding: 10px 20px;
+
+    background-color: white;
+    color: rgb(219, 42, 42);
+
+    border: 2px solid rgb(219, 42, 42);
+    border-radius: 25px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.filterButton:hover {
+    transform: scale(1.05);
+}
+
+.filterIcon {
+    font-size: 18px;
+}
