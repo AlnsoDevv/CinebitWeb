@@ -1,16 +1,37 @@
-# React + Vite
+# CineMarcos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto desarrollado para la asignatura **Desarrollo Web**, Universidad Diego Portales, segundo semestre 2026.
 
-Currently, two official plugins are available:
+**Profesor:** [Marcos Fantoval]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Descripción
 
-## React Compiler
+CineMarcos es una plataforma web orientada al descubrimiento y opinión de películas. Permite explorar un catálogo, buscar y filtrar películas, acceder a fichas individuales, calificarlas y publicar reseñas asociadas a un usuario.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+El proyecto corresponde a una evolución de una primera versión desarrollada principalmente con HTML y CSS, migrada posteriormente a **React** para trabajar con componentes reutilizables, vistas dinámicas y manejo de estado.
 
-## Expanding the ESLint configuration
+## Tecnologías utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript / JSX
+- CSS
+- Vite
+- Node.js
+- npm
+- Git / GitHub
+
+## Funcionalidades actuales
+
+- Catálogo dinámico de películas.
+- Búsqueda de películas por título.
+- Filtros y criterios de ordenamiento.
+- Fichas de películas generadas dinámicamente mediante su ID.
+- Sistema de inicio de sesión simulado.
+- Calificaciones y reseñas asociadas a películas y usuarios.
+- Diseño responsivo.
+
+## Integrantes
+
+- Alonso Quilapán
+- Felipe Salinas
+- José Tiu

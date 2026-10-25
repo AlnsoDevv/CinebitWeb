@@ -1,5 +1,5 @@
-import { useState } from "react";
-import "./SignIn.css";
+import { useState } from 'react';
+import './SignIn.css';
 
 function Register({ onRegister, onNavigateLogin }) {
   const [email, setEmail] = useState("");
