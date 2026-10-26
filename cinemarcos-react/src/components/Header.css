@@ -125,3 +125,22 @@ a {
 footer {
   color: transparent;
 }
+.user-nav {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-nav .profile-link {
+  position: static;
+  transform: none;
+}
+
+.user-nav .profile-link:hover {
+  transform: scale(1.05);
+}
