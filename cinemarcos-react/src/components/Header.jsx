@@ -47,25 +47,25 @@ function Header({
             onChange={(e) => onSearchChange(e.target.value)}
           />
         </form>
-        {currentUser ? (
-          <div className="user-nav">
-            <span className="profile-link">{currentUser.nombre}</span>
-            <button onClick={onLogout} className="profile-link">
-              Cerrar Sesión
-            </button>
-          </div>
-        ) : (
-          <a
-            href="#"
-            className="profile-link"
-            onClick={(e) => {
-              e.preventDefault();
-              onNavigate("signin");
-            }}
-          >
-            Mi perfil
-          </a>
-        )}
+          {currentUser ? (
+              <div className="user-nav">
+                  <span className="profile-link">{currentUser.nombre}</span>
+                  <button onClick={onLogout} className="profile-link">
+                      Cerrar Sesión
+                  </button>
+              </div>
+          ) : (
+              <a
+                  href="#"
+                  className="profile-link"
+                  onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate("signin");
+                  }}
+              >
+                  Mi perfil
+              </a>
+          )}
       </nav>
     </header>
   );
