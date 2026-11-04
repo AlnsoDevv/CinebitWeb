@@ -96,3 +96,25 @@ h2{
 .filterIcon {
     font-size: 18px;
 }
+
+.genre-row {
+    margin: 30px 40px;
+}
+
+.genre-title {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.genre-row-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.genre-row-list > * {
+    flex-shrink: 0;
+}

@@ -7,6 +7,7 @@ import SignIn from './Pages/SignIn.jsx';
 import { peliculasData } from './Data/peliculasData.jsx';
 import './Styles/index.css';
 import './Styles/catalogue.css';
+import GenreRow from './components/GenreRow.jsx';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -71,6 +72,8 @@ function App() {
       if (sortBy === "rating") return b.rating - a.rating;
       return b.id - a.id;
     });
+    const generos=[...new Set(peliculasData.map((pelicula)=>pelicula.genre))];
+    const sinFiltros=searchTerm === "" && selectedGenre === "Todos";
   if (vista === "signin") {
     return (
       <>
@@ -131,19 +134,36 @@ function App() {
             onSortChange={setSortBy}
           />
         )}
-
-        <section className="movies">
-          {peliculasFiltradas.map((pelicula) => (
-            <MovieCard
-              key={pelicula.id}
-              id={pelicula.id}
-              title={pelicula.title}
-              posterUrl={pelicula.posterUrl}
-              rating={pelicula.rating / 2}
-              onSelectMovie={setSelectedMovieId}
-            />
-          ))}
-        </section>
+        {sinFiltros ?(
+  <>
+    <GenreRow
+      titulo="Catalogo completo"
+      peliculas={peliculasFiltradas}
+      onSelectMovie={setSelectedMovieId}
+    />
+    {generos.map((genero) =>(
+      <GenreRow
+        key={genero}
+        titulo={genero}
+        peliculas={peliculasFiltradas.filter((pelicula) => pelicula.genre === genero)}
+        onSelectMovie={setSelectedMovieId}
+      />
+    ))}
+  </>
+) : (
+  <section className="movies">
+    {peliculasFiltradas.map((pelicula) => (
+      <MovieCard
+        key={pelicula.id}
+        id={pelicula.id}
+        title={pelicula.title}
+        posterUrl={pelicula.posterUrl}
+        rating={pelicula.rating / 2}
+        onSelectMovie={setSelectedMovieId}
+      />
+    ))}
+  </section>
+)}
       </main>
     </>
   );
