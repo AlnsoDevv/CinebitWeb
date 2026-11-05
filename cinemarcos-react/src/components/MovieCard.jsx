@@ -3,7 +3,7 @@ import './MovieCard.css';
 function MovieCard({ id, title, posterUrl, year, rating, onSelectMovie }) {
   const starRating = Math.round(rating);
   return (
-    <article className="movie">
+    <article className="movie"  onClick={()=> onSelectMovie(id)}>
       <a
         href={`/peliculas/${id}`}
         onClick={(e) => {
