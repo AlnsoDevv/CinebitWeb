@@ -6,8 +6,8 @@ function GenreRow({titulo, peliculas, onSelectMovie}){
             <div className="genre-row-list">
                 {peliculas.map((pelicula)=> (
                     <MovieCard
-                    key={pelicula.id}
-                    id={pelicula.id}
+                    key={pelicula._id  || pelicula.id}
+                    id={pelicula._id || pelicula.id}
                     title={pelicula.title}
                     posterUrl={pelicula.posterUrl}
                     rating={pelicula.rating / 2}

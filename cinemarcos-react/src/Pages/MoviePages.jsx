@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './MoviePage.css';
 import Recommended from "../components/Recommended.jsx";
 
-function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
+function MoviePage({ movie, currentUser, comentarios = [], onAddComentario, peliculas = [] }) {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [texto, setTexto] = useState("");
   const [calificacion, setCalificacion] = useState(5);
@@ -11,7 +11,7 @@ function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
     e.preventDefault();
     if (!texto.trim()) return;
 
-    onAddComentario(movie.id, texto, calificacion);
+    onAddComentario(movie._id || movie.id, texto, calificacion);
     setTexto("");
     setMostrarFormulario(false);
   };
@@ -109,7 +109,7 @@ function MoviePage({ movie, currentUser, comentarios = [], onAddComentario }) {
           </div>
         )}
       </section>
-            </div> <Recommended currentMovieId={movie.id} /> </div>
+            </div> <Recommended currentMovieId={movie._id || movie.id} peliculas={peliculas} /></div>
     </main>
   );
 }
