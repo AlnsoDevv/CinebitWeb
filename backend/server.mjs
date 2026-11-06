@@ -8,6 +8,7 @@ import * as argon2 from 'argon2';
 import { rateLimit } from 'express-rate-limit';
 import { Pelicula } from './pelicula.mjs';
 import { Usuario } from './usuario.mjs';
+import { Comentario } from './comentario.mjs';
 
 const app = express();
 const produccion = process.env.NODE_ENV === 'production';
@@ -130,6 +131,30 @@ app.post('/api/logout', (req, res, next) => {
     res.clearCookie('sid', { path: '/', httpOnly: true, sameSite: 'lax', secure: produccion });
     res.status(204).end();
   });
+});
+
+app.get('/api/comentarios', async (req, res) => {
+  const comentarios = await Comentario.find().sort({ createdAt: -1 });
+  res.json(comentarios);
+});
+
+
+app.post('/api/comentarios', requiereUsuario, async (req, res) => {
+  const { peliculaId, texto, rating } = req.body ?? {};
+
+  if (!peliculaId || typeof texto !== 'string' || !texto.trim() || typeof rating !== 'number') {
+    return res.status(400).json({ error: 'Datos de comentario invalidos' });
+  }
+
+  const nuevo = await Comentario.create({
+    peliculaId: String(peliculaId),
+    usuario: req.usuario.email.split('@')[0],
+    texto: texto.trim(),
+    rating: Math.min(5, Math.max(1, rating)),
+    fecha: new Date().toLocaleDateString()
+  });
+
+  res.status(201).json(nuevo);
 });
 
 app.param('id', (req, res, next) => {
