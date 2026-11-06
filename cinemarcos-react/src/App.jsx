@@ -4,6 +4,7 @@ import MovieCard from './components/MovieCard.jsx';
 import Filter from './components/Filter.jsx';
 import MoviePages from './Pages/MoviePages.jsx';
 import SignIn from './Pages/SignIn.jsx';
+import Register from './Pages/Register.jsx';
 import './Styles/index.css';
 import './Styles/catalogue.css';
 import GenreRow from './components/GenreRow.jsx';
@@ -20,29 +21,45 @@ function App() {
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-  async function cargarPeliculas() {
-    try {
-      setCargando(true);
-      const res = await fetch('/api/peliculas');
-      if (!res.ok) throw new Error('Error al conectar con la API');
-      const data = await res.json();
-      setPeliculas(data);
-    } catch (err) {
-      console.error(err);
-      setError(err.message);
-    } finally {
-      setCargando(false);
-    }
-  }
-  cargarPeliculas();
-}, []);
-
   const [vista, setVista] = useState("home");
   const [selectedMovieId, setSelectedMovieId] = useState(null);
 
-  const pathname = window.location.pathname;
-  const id = pathname.split("/")[2];
+  useEffect(() => {
+    async function cargarSesion() {
+      try {
+        const res = await fetch('/api/me');
+        if (res.ok) {
+          const data = await res.json();
+          setCurrentUser({
+            nombre: data.email.split("@")[0],
+            email: data.email,
+            rol: data.rol
+          });
+        }
+      } catch (err) {
+        console.error('No hay sesion activa:', err);
+      }
+    }
+    cargarSesion();
+  }, []);
+
+  useEffect(() => {
+    async function cargarPeliculas() {
+      try {
+        setCargando(true);
+        const res = await fetch('/api/peliculas');
+        if (!res.ok) throw new Error('Error al conectar con la API');
+        const data = await res.json();
+        setPeliculas(data);
+      } catch (err) {
+        console.error(err);
+        setError(err.message);
+      } finally {
+        setCargando(false);
+      }
+    }
+    cargarPeliculas();
+  }, []);
 
   const movie = peliculas.find(
     (pelicula) => String(pelicula._id || pelicula.id) === String(selectedMovieId),
@@ -53,14 +70,19 @@ function App() {
     setVista("home");
   };
 
-  const handleLogout = () => {
-    setCurrentUser(null);
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/logout', { method: 'POST' });
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setCurrentUser(null);
+      setVista("home");
+    }
   };
 
   const handleAddComentario = (peliculaId, texto, rating) => {
-    if (!currentUser) {
-      return;
-    }
+    if (!currentUser) return;
     const nuevoComentario = {
       id: Date.now(),
       peliculaId,
@@ -93,8 +115,10 @@ function App() {
       if (sortBy === "rating") return b.rating - a.rating;
       return String(b._id || b.id || '').localeCompare(String(a._id || a.id || ''));
     });
-    const generos = [...new Set(peliculas.map((pelicula) => pelicula.genre))];
-    const sinFiltros = searchTerm === "" && selectedGenre === "Todos";
+
+  const generos = [...new Set(peliculas.map((pelicula) => pelicula.genre))];
+  const sinFiltros = searchTerm === "" && selectedGenre === "Todos";
+
   if (vista === "signin") {
     return (
       <>
@@ -105,7 +129,28 @@ function App() {
           onLogout={handleLogout}
           onNavigate={handleNavigate}
         />
-        <SignIn onLogin={handleLogin} currentUser={currentUser} />
+        <SignIn
+          onLogin={handleLogin}
+          onNavigateRegister={() => setVista("register")}
+        />
+      </>
+    );
+  }
+
+  if (vista === "register") {
+    return (
+      <>
+        <Header
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          currentUser={currentUser}
+          onLogout={handleLogout}
+          onNavigate={handleNavigate}
+        />
+        <Register
+          onRegisterSuccess={handleLogin}
+          onNavigateLogin={() => setVista("signin")}
+        />
       </>
     );
   }
@@ -144,7 +189,8 @@ function App() {
 
       <main>
         <button className="filterButton" onClick={() => setFilterOpen(true)}>
-          <span className="filterIcon">☰</span> Filtrar </button>
+          <span className="filterIcon">☰</span> Filtrar
+        </button>
 
         {filterOpen && (
           <Filter
@@ -156,6 +202,7 @@ function App() {
             onSortChange={setSortBy}
           />
         )}
+
         {cargando ? (
           <p style={{ color: "white", textAlign: "center", margin: "40px" }}>Cargando catálogo...</p>
         ) : error ? (
