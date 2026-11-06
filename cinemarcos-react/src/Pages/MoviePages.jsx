@@ -97,7 +97,7 @@ function MoviePage({ movie, currentUser, comentarios = [], onAddComentario, peli
         ) : (
           <div className="lista-comentarios">
             {comentarios.map((c) => (
-              <div key={c.id} className="comentario-item">
+              <div key={c.id || c._id} className="comentario-item">
                 <div className="comentario-header">
                   <strong>{c.usuario}</strong>
                   <span>{"★".repeat(c.rating)}</span>

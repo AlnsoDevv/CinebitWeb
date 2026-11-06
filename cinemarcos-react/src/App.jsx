@@ -61,6 +61,24 @@ function App() {
     cargarPeliculas();
   }, []);
 
+useEffect(() => {
+  async function cargarComentarios() {
+    try {
+      const res = await fetch('/api/comentarios');
+      if (res.ok) {
+        const data = await res.json();
+        setComentarios(data);
+      }
+    } catch (err) {
+      console.error('Error al cargar comentarios:', err);
+    }
+  }
+  cargarComentarios();
+}, []);
+
+
+
+
   const movie = peliculas.find(
     (pelicula) => String(pelicula._id || pelicula.id) === String(selectedMovieId),
   );
@@ -81,18 +99,27 @@ function App() {
     }
   };
 
-  const handleAddComentario = (peliculaId, texto, rating) => {
-    if (!currentUser) return;
-    const nuevoComentario = {
-      id: Date.now(),
-      peliculaId,
-      usuario: currentUser.nombre,
-      texto,
-      rating,
-      fecha: new Date().toLocaleDateString(),
-    };
-    setComentarios([nuevoComentario, ...comentarios]);
-  };
+  const handleAddComentario = async (peliculaId, texto, rating) => {
+  if (!currentUser) return;
+  try {
+    const res = await fetch('/api/comentarios', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ peliculaId, texto, rating })
+    });
+
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.error || 'Error al guardar comentario');
+    }
+
+    const nuevo = await res.json();
+    setComentarios((prev) => [nuevo, ...prev]);
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
 
   const handleNavigate = (nuevaVista) => {
     setVista(nuevaVista);
