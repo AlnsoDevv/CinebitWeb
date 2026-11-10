@@ -5,6 +5,7 @@ import Filter from './components/Filter.jsx';
 import MoviePages from './Pages/MoviePages.jsx';
 import SignIn from './Pages/SignIn.jsx';
 import Register from './Pages/Register.jsx';
+import Profile from './Pages/Profile.jsx';
 import './Styles/index.css';
 import './Styles/catalogue.css';
 import GenreRow from './components/GenreRow.jsx';
@@ -177,6 +178,29 @@ useEffect(() => {
         <Register
           onRegisterSuccess={handleLogin}
           onNavigateLogin={() => setVista("signin")}
+        />
+      </>
+    );
+  }
+
+    if (vista === "perfil" && currentUser) {
+    return (
+      <>
+        <Header
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          currentUser={currentUser}
+          onLogout={handleLogout}
+          onNavigate={handleNavigate}
+        />
+        <Profile
+          currentUser={currentUser}
+          comentarios={comentarios.filter((c) => c.usuario === currentUser.nombre)}
+          peliculas={peliculas}
+          onOpenMovie={(id) => {
+            setSelectedMovieId(id);
+            setVista("home");
+          }}
         />
       </>
     );

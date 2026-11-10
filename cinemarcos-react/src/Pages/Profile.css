@@ -1,0 +1,109 @@
+.profilePage{
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+    color: white;
+}
+
+.profileHeader{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background-color: rgba(120,120,255,0.04);
+    border-radius: 20px;
+}
+
+.profileAvatar {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: darkred;
+  font-size: 40px;
+  font-weight: bold;
+}
+ 
+.profileName {
+  margin: 0;
+}
+ 
+.profileEmail {
+  margin: 4px 0 8px;
+  color: rgba(255, 255, 255, 0.7);
+}
+ 
+.profileRole {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 10px;
+  background-color: rgba(120, 120, 255, 0.15);
+  font-size: 14px;
+}
+ 
+.profileReviews {
+  margin-top: 25px;
+  padding: 25px;
+  background-color: rgba(120, 120, 255, 0.04);
+  border-radius: 20px;
+}
+ 
+.profileReviews h2 {
+  margin-top: 0;
+}
+ 
+.profileReview {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: rgba(120, 120, 255, 0.06);
+  border-radius: 12px;
+}
+ 
+.profileReviewTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+ 
+.profileMovieLink {
+  padding: 0;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+ 
+.profileMovieLink:hover {
+  color: gold;
+}
+ 
+.profileStars {
+  color: gold;
+  white-space: nowrap;
+}
+ 
+.profileText {
+  margin: 10px 0 5px;
+}
+ 
+.profileDate {
+  color: rgba(255, 255, 255, 0.5);
+}
+ 
+.profileEmpty {
+  color: rgba(255, 255, 255, 0.7);
+}
+ 
+@media (max-width: 600px) {
+  .profileHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+}
