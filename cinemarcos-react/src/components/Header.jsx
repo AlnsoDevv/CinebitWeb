@@ -49,7 +49,7 @@ function Header({
         </form>
           {currentUser ? (
               <div className="user-nav">
-                  <span className="profile-link">{currentUser.nombre}</span>
+                  <a href="#" className="profile-link" onClick={(e) => { e.preventDefault(); onNavigate("perfil"); }}> {currentUser.nombre} </a>
                   <button onClick={onLogout} className="profile-link">
                       Cerrar Sesión
                   </button>
