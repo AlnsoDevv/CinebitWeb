@@ -9,6 +9,7 @@ import Profile from './Pages/Profile.jsx';
 import './Styles/index.css';
 import './Styles/catalogue.css';
 import GenreRow from './components/GenreRow.jsx';
+import Admin from './Pages/Admin.jsx';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -205,6 +206,22 @@ useEffect(() => {
           }}
         />
       </>
+    );
+  }
+
+  if (vista === "admin" && currentUser?.rol === "admin") {
+    return (
+        <>
+          <Header
+              searchTerm={searchTerm}
+              onSearchChange={setSearchTerm}
+              currentUser={currentUser}
+              onLogout={handleLogout}
+              onNavigate={handleNavigate}
+          />
+
+          <Admin />
+        </>
     );
   }
 
