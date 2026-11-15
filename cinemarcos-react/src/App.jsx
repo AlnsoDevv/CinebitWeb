@@ -14,6 +14,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedGenre, setSelectedGenre] = useState("Todos");
   const [sortBy, setSortBy] = useState("recientes");
+  const [seccionInicio, setSeccionInicio] = useState("explorar");
 
   const [currentUser, setCurrentUser] = useState(null);
   const [comentarios, setComentarios] = useState([]);
@@ -24,6 +25,7 @@ function App() {
 
   const [vista, setVista] = useState("home");
   const [selectedMovieId, setSelectedMovieId] = useState(null);
+
 
   useEffect(() => {
     async function cargarSesion() {
@@ -239,9 +241,21 @@ useEffect(() => {
       />
 
       <main>
-        <button className="filterButton" onClick={() => setFilterOpen(true)}>
-          <span className="filterIcon">☰</span> Filtrar
-        </button>
+        <div className="homeSections">
+          <button
+              className={seccionInicio === "explorar" ? "homeSection active" : "homeSection"}
+              onClick={() => setSeccionInicio("explorar")}
+          >
+            Explorar
+          </button>
+
+          <button
+              className={seccionInicio === "todas" ? "homeSection active" : "homeSection"}
+              onClick={() => setSeccionInicio("todas")}
+          >
+            Todas las películas
+          </button>
+        </div>
 
         {filterOpen && (
           <Filter
@@ -255,38 +269,39 @@ useEffect(() => {
         )}
 
         {cargando ? (
-          <p style={{ color: "white", textAlign: "center", margin: "40px" }}>Cargando catálogo...</p>
+            <p style={{ color: "white", textAlign: "center", margin: "40px" }}>
+              Cargando catálogo...
+            </p>
         ) : error ? (
-          <p style={{ color: "#ff6b6b", textAlign: "center", margin: "40px" }}>{error}</p>
-        ) : sinFiltros ? (
-          <>
-            <GenreRow
-              titulo="Catalogo completo"
-              peliculas={peliculasFiltradas}
-              onSelectMovie={setSelectedMovieId}
-            />
-            {generos.map((genero) => (
-              <GenreRow
-                key={genero}
-                titulo={genero}
-                peliculas={peliculasFiltradas.filter((pelicula) => pelicula.genre === genero)}
-                onSelectMovie={setSelectedMovieId}
-              />
-            ))}
-          </>
+            <p style={{ color: "#ff6b6b", textAlign: "center", margin: "40px" }}>
+              {error}
+            </p>
+        ) : seccionInicio === "explorar" && sinFiltros ? (
+            <>
+              {generos.map((genero) => (
+                  <GenreRow
+                      key={genero}
+                      titulo={genero}
+                      peliculas={peliculas.filter(
+                          (pelicula) => pelicula.genre === genero
+                      )}
+                      onSelectMovie={setSelectedMovieId}
+                  />
+              ))}
+            </>
         ) : (
-          <section className="movies">
-            {peliculasFiltradas.map((pelicula) => (
-              <MovieCard
-                key={pelicula._id || pelicula.id}
-                id={pelicula._id || pelicula.id}
-                title={pelicula.title}
-                posterUrl={pelicula.posterUrl}
-                rating={pelicula.rating / 2}
-                onSelectMovie={setSelectedMovieId}
-              />
-            ))}
-          </section>
+            <section className="movies">
+              {peliculasFiltradas.map((pelicula) => (
+                  <MovieCard
+                      key={pelicula._id || pelicula.id}
+                      id={pelicula._id || pelicula.id}
+                      title={pelicula.title}
+                      posterUrl={pelicula.posterUrl}
+                      rating={pelicula.rating / 2}
+                      onSelectMovie={setSelectedMovieId}
+                  />
+              ))}
+            </section>
         )}
       </main>
     </>

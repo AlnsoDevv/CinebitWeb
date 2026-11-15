@@ -264,5 +264,31 @@ h2 {
         width: 30px;
         height: 30px;
         font-size: 22px;
+    }}
+
+    .homeSections {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0;
     }
-}
+
+    .homeSection {
+        padding: 10px 22px;
+
+        background-color: white;
+        color: rgb(219, 42, 42);
+
+        border: 2px solid rgb(219, 42, 42);
+        border-radius: 25px;
+
+        font-size: 15px;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    .homeSection.active {
+        background-color: rgb(219, 42, 42);
+        color: white;
+    }
