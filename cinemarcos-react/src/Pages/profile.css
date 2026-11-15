@@ -107,3 +107,35 @@
     text-align: center;
   }
 }
+
+.profileReviewActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profileDelete {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+
+  color: white;
+  opacity: 0.85;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.profileDelete svg {
+  width: 20px;
+  height: 20px;
+}
+
+.profileDelete:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}

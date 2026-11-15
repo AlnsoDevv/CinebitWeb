@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './MoviePage.css';
 import Recommended from "../components/Recommended.jsx";
 
-function MoviePage({ movie, currentUser, comentarios = [], onAddComentario, peliculas = [] }) {
+function MoviePage({movie, currentUser, comentarios = [], onAddComentario, onDeleteComentario, peliculas = []}) {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [texto, setTexto] = useState("");
   const [calificacion, setCalificacion] = useState(5);
@@ -96,16 +96,55 @@ function MoviePage({ movie, currentUser, comentarios = [], onAddComentario, peli
           <p className="sin-comentarios">No hay comentarios disponibles :p</p>
         ) : (
           <div className="lista-comentarios">
-            {comentarios.map((c) => (
-              <div key={c.id || c._id} className="comentario-item">
-                <div className="comentario-header">
-                  <strong>{c.usuario}</strong>
-                  <span>{"★".repeat(c.rating)}</span>
-                </div>
-                <p className="comentario-texto">{c.texto}</p>
-                <small className="comentario-fecha">{c.fecha}</small>
-              </div>
-            ))}
+              {comentarios.map((c) => {
+                  const puedeBorrar =
+                      currentUser &&
+                      (
+                          currentUser.rol === "admin" ||
+                          (
+                              c.usuarioId &&
+                              String(c.usuarioId) === String(currentUser.id)
+                          )
+                      );
+
+                  return (
+                      <div key={c.id || c._id} className="comentario-item">
+                          <div className="comentario-header">
+                              <strong>{c.usuario}</strong>
+
+                              <div className="comentario-actions">
+                                  <span>{"★".repeat(c.rating)}</span>
+
+                                  {puedeBorrar && (
+                                      <button
+                                          className="comentario-delete"
+                                          onClick={() => onDeleteComentario(c._id)}
+                                          title="Eliminar comentario"
+                                      >
+                                          <svg
+                                              viewBox="0 0 24 24"
+                                              fill="none"
+                                              stroke="currentColor"
+                                              strokeWidth="2.2"
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                          >
+                                              <path d="M3 6h18" />
+                                              <path d="M8 6V4h8v2" />
+                                              <path d="M19 6l-1 14H6L5 6" />
+                                              <path d="M10 11v6" />
+                                              <path d="M14 11v6" />
+                                          </svg>
+                                      </button>
+                                  )}
+                              </div>
+                          </div>
+
+                          <p className="comentario-texto">{c.texto}</p>
+                          <small className="comentario-fecha">{c.fecha}</small>
+                      </div>
+                  );
+              })}
           </div>
         )}
       </section>

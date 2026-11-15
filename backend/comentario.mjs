@@ -6,6 +6,11 @@ const esquema = new mongoose.Schema({
     required: true,
     index: true
   },
+  usuarioId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Usuario',
+    index: true
+  },
   usuario: {
     type: String,
     required: true,
