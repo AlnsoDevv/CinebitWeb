@@ -86,7 +86,7 @@ app.post('/api/login', limiteLogin, async (req, res, next) => {
     req.session.userId = String(u._id);
     req.session.save(err => {
       if (err) return next(err);
-      res.json({ email: u.email, rol: u.rol });
+      res.json({ _id: u._id, email: u.email, rol: u.rol });
     });
   });
 });
@@ -116,13 +116,13 @@ app.post('/api/registro', async (req, res, next) => {
     req.session.userId = String(nuevo._id);
     req.session.save(err => {
       if (err) return next(err);
-      res.status(201).json({ email: nuevo.email, rol: nuevo.rol });
+      res.status(201).json({ _id: nuevo._id, email: nuevo.email, rol: nuevo.rol });
     });
   });
 });
 
 app.get('/api/me', requiereUsuario, (req, res) => {
-  res.json({ email: req.usuario.email, rol: req.usuario.rol });
+  res.json({ _id: req.usuario._id, email: req.usuario.email, rol: req.usuario.rol });
 });
 
 app.get(
@@ -197,11 +197,48 @@ app.post('/api/comentarios', requiereUsuario, async (req, res) => {
     usuario: req.usuario.email.split('@')[0],
     texto: texto.trim(),
     rating: Math.min(5, Math.max(1, rating)),
-    fecha: new Date().toLocaleDateString()
+    fecha: new Date().toLocaleDateString(),
+    usuarioId: req.usuario._id,
   });
 
   res.status(201).json(nuevo);
 });
+
+app.delete(
+    '/api/comentarios/:comentarioId',
+    requiereUsuario,
+    async (req, res) => {
+      const { comentarioId } = req.params;
+
+      if (!mongoose.isObjectIdOrHexString(comentarioId)) {
+        return res.status(400).json({ error: 'ID invalido' });
+      }
+
+      const comentario = await Comentario.findById(comentarioId);
+
+      if (!comentario) {
+        return res.status(404).json({
+          error: 'Comentario no encontrado'
+        });
+      }
+
+      const esAdmin = req.usuario.rol === 'admin';
+
+      const esAutor =
+          comentario.usuarioId &&
+          String(comentario.usuarioId) === String(req.usuario._id);
+
+      if (!esAdmin && !esAutor) {
+        return res.status(403).json({
+          error: 'No puedes eliminar este comentario'
+        });
+      }
+
+      await comentario.deleteOne();
+
+      res.status(204).end();
+    }
+);
 
 app.param('id', (req, res, next) => {
   if (!mongoose.isObjectIdOrHexString(req.params.id)) {

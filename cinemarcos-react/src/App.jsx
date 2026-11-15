@@ -35,6 +35,7 @@ function App() {
         if (res.ok) {
           const data = await res.json();
           setCurrentUser({
+            id: data._id,
             nombre: data.email.split("@")[0],
             email: data.email,
             rol: data.rol
@@ -125,6 +126,35 @@ useEffect(() => {
   }
 };
 
+  const handleDeleteComentario = async (comentarioId) => {
+    const confirmar = window.confirm(
+        "¿Seguro que quieres eliminar este comentario?"
+    );
+
+    if (!confirmar) return;
+
+    try {
+      const res = await fetch(`/api/comentarios/${comentarioId}`, {
+        method: "DELETE"
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(
+            data.error || "Error al eliminar comentario"
+        );
+      }
+
+      setComentarios((actuales) =>
+          actuales.filter(
+              (comentario) => comentario._id !== comentarioId
+          )
+      );
+    } catch (err) {
+      alert(err.message);
+    }
+  };
+
   const handleNavigate = (nuevaVista) => {
     setVista(nuevaVista);
     if (nuevaVista === "home") {
@@ -199,6 +229,7 @@ useEffect(() => {
         <Profile
           currentUser={currentUser}
           comentarios={comentarios.filter((c) => c.usuario === currentUser.nombre)}
+          onDeleteComentario={handleDeleteComentario}
           peliculas={peliculas}
           onOpenMovie={(id) => {
             setSelectedMovieId(id);
@@ -241,6 +272,7 @@ useEffect(() => {
           currentUser={currentUser}
           comentarios={comentarios.filter((c) => c.peliculaId == (movie._id || movie.id))}
           onAddComentario={handleAddComentario}
+          onDeleteComentario={handleDeleteComentario}
           peliculas={peliculas}
         />
       </>

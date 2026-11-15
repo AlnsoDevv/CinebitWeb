@@ -1,7 +1,8 @@
 import './profile.css';
 
-function Profile({currentUser, comentarios, peliculas, onOpenMovie}){
-    const buscarPelicula=(peliculaId) => peliculas.find((pelicula) => String(pelicula.id || pelicula.id)===String(peliculaId));
+function Profile({currentUser, comentarios, peliculas, onOpenMovie, onDeleteComentario}) {
+  const buscarPelicula = (peliculaId) =>
+      peliculas.find((pelicula) => String(pelicula._id || pelicula.id) === String(peliculaId));
 
     return (
     <main className="profilePage">
@@ -39,7 +40,32 @@ function Profile({currentUser, comentarios, peliculas, onOpenMovie}){
                   ) : (
                     <span>Película eliminada</span>
                   )}
-                  <span className="profileStars">{"★".repeat(Math.round(c.rating))}</span>
+                  <div className="profileReviewActions">
+  <span className="profileStars">
+    {"★".repeat(Math.round(c.rating))}
+  </span>
+
+                    <button
+                        className="profileDelete"
+                        onClick={() => onDeleteComentario(c._id)}
+                        title="Eliminar reseña"
+                    >
+                      <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                      >
+                        <path d="M3 6h18" />
+                        <path d="M8 6V4h8v2" />
+                        <path d="M19 6l-1 14H6L5 6" />
+                        <path d="M10 11v6" />
+                        <path d="M14 11v6" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
                 <p className="profileText">{c.texto}</p>
                 <small className="profileDate">{c.fecha}</small>

@@ -25,7 +25,12 @@ function Register({ onRegisterSuccess, onNavigateLogin }) {
       }
 
       const nombreUsuario = data.email.split("@")[0];
-      onRegisterSuccess({ nombre: nombreUsuario, email: data.email, rol: data.rol });
+      onRegisterSuccess({
+        id: data._id,
+        nombre: nombreUsuario,
+        email: data.email,
+        rol: data.rol
+      });
     } catch (err) {
       setError(err.message);
     } finally {

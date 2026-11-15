@@ -25,7 +25,12 @@ function SignIn({ onLogin, onNavigateRegister }) {
       }
 
       const nombreUsuario = data.email.split("@")[0];
-      onLogin({ nombre: nombreUsuario, email: data.email, rol: data.rol });
+      onLogin({
+        id: data._id,
+        nombre: nombreUsuario,
+        email: data.email,
+        rol: data.rol
+      });
     } catch (err) {
       setError(err.message);
     } finally {
