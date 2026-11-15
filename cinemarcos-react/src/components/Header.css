@@ -127,11 +127,13 @@ footer {
 }
 .user-nav {
   position: absolute;
-  right: 10px;
+  right: 25px;
   top: 50%;
   transform: translateY(-50%);
 
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 10px;
 }
@@ -139,6 +141,9 @@ footer {
 .user-nav .profile-link {
   position: static;
   transform: none;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .user-nav .profile-link:hover {

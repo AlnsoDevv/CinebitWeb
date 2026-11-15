@@ -125,6 +125,52 @@ app.get('/api/me', requiereUsuario, (req, res) => {
   res.json({ email: req.usuario.email, rol: req.usuario.rol });
 });
 
+app.get(
+    '/api/usuarios',
+    requiereUsuario,
+    requiereAdmin,
+    async (req, res) => {
+      const usuarios = await Usuario.find()
+          .select('email rol createdAt')
+          .sort({ email: 1 });
+
+      res.json(usuarios);
+    }
+);
+
+app.patch(
+    '/api/usuarios/:usuarioId/rol',
+    requiereUsuario,
+    requiereAdmin,
+    async (req, res) => {
+
+      const { rol } = req.body ?? {};
+
+      if (!['usuario', 'admin'].includes(rol)) {
+        return res.status(400).json({ error: 'Rol invalido' });
+      }
+
+      if (!mongoose.isObjectIdOrHexString(req.params.usuarioId)) {
+        return res.status(400).json({ error: 'ID invalido' });
+      }
+
+      const usuario = await Usuario.findById(req.params.usuarioId);
+
+      if (!usuario) {
+        return res.status(404).json({ error: 'Usuario no encontrado' });
+      }
+
+      usuario.rol = rol;
+      await usuario.save();
+
+      res.json({
+        _id: usuario._id,
+        email: usuario.email,
+        rol: usuario.rol
+      });
+    }
+);
+
 app.post('/api/logout', (req, res, next) => {
   req.session.destroy(err => {
     if (err) return next(err);

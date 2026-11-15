@@ -49,10 +49,34 @@ function Header({
         </form>
           {currentUser ? (
               <div className="user-nav">
-                  <a href="#" className="profile-link" onClick={(e) => { e.preventDefault(); onNavigate("perfil"); }}> {currentUser.nombre} </a>
-                  <button onClick={onLogout} className="profile-link">
+
+                  {currentUser.rol === "admin" && (
+                      <button
+                          onClick={() => onNavigate("admin")}
+                          className="profile-link"
+                      >
+                          Administrar
+                      </button>
+                  )}
+
+                  <a
+                      href="#"
+                      className="profile-link"
+                      onClick={(e) => {
+                          e.preventDefault();
+                          onNavigate("perfil");
+                      }}
+                  >
+                      {currentUser.nombre}
+                  </a>
+
+                  <button
+                      onClick={onLogout}
+                      className="profile-link"
+                  >
                       Cerrar Sesión
                   </button>
+
               </div>
           ) : (
               <a
