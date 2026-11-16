@@ -121,6 +121,26 @@ app.post('/api/registro', async (req, res, next) => {
   });
 });
 
+function convertirYoutubeEmbed(url) {
+  if (!url) return "";
+
+  if (url.includes("youtube.com/embed/")) {
+    return url;
+  }
+
+  if (url.includes("youtu.be/")) {
+    const partes = url.split("youtu.be/");
+    return `https://www.youtube.com/embed/${partes[1]}`;
+  }
+
+  if (url.includes("youtube.com/watch?v=")) {
+    const partes = url.split("watch?v=");
+    return `https://www.youtube.com/embed/${partes[1]}`;
+  }
+
+  return url;
+}
+
 app.get('/api/me', requiereUsuario, (req, res) => {
   res.json({ _id: req.usuario._id, email: req.usuario.email, rol: req.usuario.rol });
 });
@@ -264,7 +284,7 @@ app.get('/api/peliculas/:id', async (req, res) => {
   res.json(pelicula);
 });
 
-app.post('/api/peliculas', requiereUsuario, async (req, res) => {
+app.post('/api/peliculas', requiereUsuario, requiereAdmin, async (req, res) => {
   const { title, genre, year, rating, posterUrl, trailerUrl, description } = req.body ?? {};
 
   if (typeof title !== 'string' || !title.trim()) {
@@ -277,7 +297,7 @@ app.post('/api/peliculas', requiereUsuario, async (req, res) => {
     year,
     rating,
     posterUrl,
-    trailerUrl,
+    trailerUrl: convertirYoutubeEmbed(trailerUrl),
     description
   });
 

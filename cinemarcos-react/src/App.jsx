@@ -251,7 +251,20 @@ useEffect(() => {
               onNavigate={handleNavigate}
           />
 
-          <Admin />
+          <Admin
+              peliculas={peliculas}
+              onPeliculaCreada={(nueva) => {
+                setPeliculas((actuales) => [...actuales, nueva]);
+              }}
+              onPeliculaEliminada={(id) => {
+                setPeliculas((actuales) =>
+                    actuales.filter(
+                        (pelicula) =>
+                            String(pelicula._id || pelicula.id) !== String(id)
+                    )
+                );
+              }}
+          />
         </>
     );
   }

@@ -10,47 +10,109 @@
 
 .admin-section {
     max-width: 700px;
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
 }
 
 .admin-section h2 {
     margin-bottom: 20px;
 }
 
+.admin-search {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    border: 2px solid rgb(219, 42, 42);
+    font-size: 15px;
+    outline: none;
+}
+
 .admin-user {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     background-color: white;
     color: rgb(219, 42, 42);
-
     padding: 15px 20px;
     margin-bottom: 12px;
-
     border-radius: 20px;
+}
+
+.admin-user span {
+    font-weight: bold;
 }
 
 .admin-user select {
     padding: 7px 12px;
     border-radius: 15px;
     border: 2px solid rgb(219, 42, 42);
-
     color: rgb(219, 42, 42);
     background-color: white;
-
     font-weight: bold;
     cursor: pointer;
 }
 
-.admin-search {
+.admin-movie-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.admin-movie-form input,
+.admin-movie-form textarea {
     width: 100%;
     padding: 10px 15px;
-    margin-bottom: 20px;
-
-    border-radius: 20px;
     border: 2px solid rgb(219, 42, 42);
-
+    border-radius: 15px;
     font-size: 15px;
     outline: none;
+}
+
+.admin-movie-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.admin-movie-form button {
+    padding: 10px 20px;
+    background-color: rgb(219, 42, 42);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.admin-movie-form button:hover {
+    transform: scale(1.02);
+}
+
+.admin-delete {
+    width: 36px;
+    height: 36px;
+
+    background: none;
+    border: none;
+
+    padding: 0;
+    margin: 0;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-delete svg {
+    width: 26px;
+    height: 26px;
+    display: block;
+}
+
+.admin-delete:hover {
+    transform: scale(1.1);
 }
